@@ -8,7 +8,7 @@ function MainPage() {
     return (
       <div>
           <MainLayout> 
-              <DrawerLayout/>
+              {/* <DrawerLayout/> */}
               <Cards/>
           </MainLayout>
           <FooterLayout/>

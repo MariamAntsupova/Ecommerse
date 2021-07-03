@@ -23,8 +23,8 @@ function FooterLayout() {
         </Grid>
         <footer className={classes.footer}>
             <Box className={classes.col} display='flex' >
-                <Grid container wrap>
-                    <Grid item xs={12} sm={3} wrap>
+                <Grid container wrap >
+                    <Grid item xs={12} sm={6} md={3}>
                         <Typography variant='h6' >Products </Typography>
                         <Typography variant='h6' className={classes.line}> </Typography>
                         <Typography variant='h6' className={classes.mt}>MDBootstrap </Typography>
@@ -32,7 +32,7 @@ function FooterLayout() {
                         <Typography variant='h6' className={classes.mt} >BrandFlow </Typography>
                         <Typography variant='h6' className={classes.mt} >Bootstrap Angular </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={3} wrap>
+                    <Grid item xs={12} sm={6} md={3}>
                         <Typography variant='h6' >Products </Typography>
                         <Typography variant='h6' className={classes.line}> </Typography>
                         <Typography variant='h6' className={classes.mt} >MDBootstrap </Typography>
@@ -40,7 +40,7 @@ function FooterLayout() {
                         <Typography variant='h6' className={classes.mt} >BrandFlow </Typography>
                         <Typography variant='h6' className={classes.mt} >Bootstrap Angular </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={3} wrap>
+                    <Grid item xs={12} sm={6} md={3}>
                         <Typography variant='h6' >Useful links</Typography>
                         <Typography variant='h6' className={classes.line}> </Typography>
                         <Typography variant='h6' className={classes.mt} >Your Account</Typography>
@@ -48,7 +48,7 @@ function FooterLayout() {
                         <Typography variant='h6' className={classes.mt} >Shipping Rates</Typography>
                         <Typography variant='h6' className={classes.mt} >Help</Typography>
                     </Grid>
-                    <Grid item xs={12} sm={3} wrap>
+                    <Grid item xs={12} sm={6} md={3}>
                         <Typography variant='h6' >Useful links</Typography>
                         <Typography variant='h6' className={classes.line}> </Typography>
                         <Typography variant='h6' className={classes.mt} >Your Account</Typography>

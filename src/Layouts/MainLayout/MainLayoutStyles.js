@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     overlay : {
       color: 'black',
       zIndex: theme.zIndex.CardMedia +1,
-      color: '#fff',
     },
     // media: {
     //   opacity: 0.5 , 
