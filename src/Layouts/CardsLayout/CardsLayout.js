@@ -1,5 +1,5 @@
-import { Typography , Card , CardActions ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent} from '@material-ui/core';
-import useStyles from './CardsStyles';
+import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box} from '@material-ui/core';
+import useStyles from './CardsLayoutStyles';
 import image from '../../Assets/Images/12.jpg'
 const cards = [ 1,2,3,4,5,6,7,8,9];
 
@@ -10,12 +10,20 @@ function Cards() {
         <CssBaseline />
 
         <main>
-          <Container className={classes.cardGrid} maxWidth='md'>
-            <Grid item xs={12} justifyContent='space-between' alignItems='center'>
+          <Container className={classes.cardGrid}>
+            <Grid item xs={12} className={classes.grid}>
                 <Grid item xs={3}>
-                    <a href="#!" className={classes.i}><i className="fas fa-th-list fa-lg "  ></i></a>
+                    <a href="#!" className={classes.i}><i className="fas fa-th-list fa-lg " ></i></a>
                     <a href="#!" className={classes.i}><i className="fas fa-th-large fa-lg"></i></a>
                 </Grid>
+                <Typography>Label example</Typography>
+                <Box>
+                  <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
+                  <Button className={classes.button}>1</Button>
+                  <Button className={classes.button}>2</Button>
+                  <Button className={classes.button}>3</Button>
+                  <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
+                </Box>
             </Grid>
             <Grid container spacing={4}>
               {cards.map((card)=>(

@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme)=> ({
         backgroundColor: '#1266F1',
     },
     col: {
-        padding: '30px 100px',
         color: '#eeeded'
     },
     line: {
@@ -20,7 +19,6 @@ const useStyles = makeStyles((theme)=> ({
         marginTop: '10px'
     },
     col: {
-        padding: '20px 100px',
         color: 'white'
     },
     mr : {
@@ -28,6 +26,11 @@ const useStyles = makeStyles((theme)=> ({
     },
     mt : {
         marginTop: '20px'
+    },
+    column: {
+        display : 'flex',
+        flexDirection: 'row',
+        padding : '5px 0'
     }
 }));
 

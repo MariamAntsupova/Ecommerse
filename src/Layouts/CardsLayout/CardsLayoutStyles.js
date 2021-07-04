@@ -22,7 +22,18 @@ const useStyles = makeStyles((theme)=> ({
     },
     i: {
         color: 'black',
-        marginRight: '10px'
+        marginRight: '10px',
+
+    },
+    button: {
+        borderRadius: '50%',
+    },
+    grid: {
+        display: 'flex' ,
+        flexDirection: 'row',
+        justifyContent :'space-between' ,
+        alignItems: 'center',
+        padding: '10px'
     }
 
 }));
