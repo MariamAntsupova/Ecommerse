@@ -1,8 +1,7 @@
-import { Box, Checkbox, Container, FormControl, FormControlLabel, FormGroup, FormLabel, Radio, RadioGroup, Slider, TextField, Typography, withStyles } from "@material-ui/core";
+import { Box, Checkbox, Container, Fab, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, Slider, TextField, Typography, withStyles } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import React, { useState } from 'react' ;
 import useStyles from "./SidebarLayoutStyles";
-
 
 function Sidebar() {
         const classes = useStyles();
@@ -11,8 +10,8 @@ function Sidebar() {
         const handleChange = (event) => {
           setState({ ...state, [event.target.name]: event.target.checked });
         };
-      
         const { neew, used, collectible , renewed , xs , s , m , l } = state;
+
         const PrettoSlider = withStyles({
             root: {
               color: '#0075FF',
@@ -48,7 +47,7 @@ function Sidebar() {
 
                 <Box mt={5} mb={5}>
 
-                    <Typography variant='h5' className = {classes.title}><b>Subcategories</b></Typography>
+                    <Typography component="legend" className = {classes.title}><b>Subcategories</b></Typography>
                     <Typography variant='h5 ' className={classes.tb}>RETURN TO <b>CLOTHING, SHOES, ACCESSORIES</b></Typography>
                     <Typography variant='h5 ' className={classes.tb}>DRESSES</Typography>
                     <Typography variant='h5 ' className={classes.tb}>TOPS,TEES and BLOUSES</Typography>
@@ -57,15 +56,15 @@ function Sidebar() {
                     <Typography variant='h5 ' className={classes.tb}>JEANS</Typography>
                 </Box> 
                 <Box mt={5} mb={5}>
-                    <Typography  variant='h5' className = {classes.title}><b>Filters</b></Typography>
+                    <Typography  component="legend" className = {classes.title}><b>Filters</b></Typography>
                     <Box component='div' display="flex" alignItems="center" justifyContent="between">
-                        <TextField id="outlined-basic" label="Search" variant="outlined" />
-                        <Box><i class="fas fa-search fa-lg"></i></Box>
+                        <TextField id="outlined-basic" label="Search" variant="outlined"/>
+                        <Box ml={2}><i class="fas fa-search fa-lg" ></i></Box>
                     </Box>
                 </Box>
                 <Box mt={5} mb={5}>
                    <FormControl component="fieldset" >
-                        <FormLabel><b>Condition</b></FormLabel>
+                        <Typography component="legend"><b>Condition</b></Typography>
                             <FormGroup>
                                 <FormControlLabel
                                 control={<Checkbox checked={neew} onChange={handleChange} name="new" />}
@@ -123,7 +122,7 @@ function Sidebar() {
                 </Box>
                 <Box mt={5} mb={5}>
                     <FormControl>
-                        <Typography variant='h5' className = {classes.title}>Price</Typography>
+                        <Typography component="legend" className = {classes.title}><b>Price</b></Typography>
                         <RadioGroup column aria-label="position" name="position" defaultValue="top">
                             <FormControlLabel value="25" control={<Radio color="primary" />} label="UNDER $25" />
                             <FormControlLabel value="50" control={<Radio color="primary" />} label="$25 TO $50" />
@@ -139,12 +138,12 @@ function Sidebar() {
                     </FormControl>
                 </Box>
                 <Box mt={5} mb={5}>
-                    <Typography gutterBottom className = {classes.title}><b>Price</b></Typography>
+                    <Typography gutterBottom component="legend" className={classes.title}><b>Price</b></Typography>
                     <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={20} />
                 </Box>
                 <Box mt={5} mb={5}>
                    <FormControl component="fieldset" >
-                        <Typography variant='h5' className = {classes.title}><b>Size</b></Typography>
+                        <Typography component="legend" className = {classes.title}><b>Size</b></Typography>
                             <FormGroup>
                                 <FormControlLabel
                                 control={<Checkbox checked={xs} onChange={handleChange} name="34" />}
@@ -164,6 +163,32 @@ function Sidebar() {
                                 />
                             </FormGroup>
                     </FormControl>
+                </Box>
+                <Box>
+                    <Typography component="legend" className = {classes.title}><b>Color</b></Typography>
+
+                    <Fab size="medium" color="primary" >
+                        
+                    </Fab>
+                    <Fab size="medium" color="secondary" >
+                        
+                    </Fab>
+                    <Fab size="medium" color="transparent" >
+                        
+                    </Fab>
+                    <Fab size="medium" color="primary"  >
+                        
+                    </Fab>
+                    <Fab size="medium" color="secondary" >
+                        
+                    </Fab>
+                    <Fab size="medium" color="transparent" >
+                        
+                    </Fab>
+                    <Fab size="medium" color="primary"  >
+                        
+                    </Fab>                       
+                   
                 </Box>
             </Container>
       </div>

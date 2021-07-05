@@ -11,11 +11,11 @@ function MainPage() {
     return (
       <div>
           <MainLayout className={classes.main}> 
-            <Grid container direction="row">
-                <Grid item xs={4}>
+            <Grid container direction="row" wrap>
+                <Grid item sm={4} xs={12}>
                    <Sidebar />
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item sm={8} xs={12}>
                   <Cards />
                 </Grid>
             </Grid>

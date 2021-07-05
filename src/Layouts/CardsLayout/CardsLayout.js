@@ -1,10 +1,13 @@
-import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box} from '@material-ui/core';
+import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box, Fab} from '@material-ui/core';
 import useStyles from './CardsLayoutStyles';
-import image from '../../Assets/Images/12.jpg'
-const cards = [ 1,2,3,4,5,6,7,8,9];
+import image from '../../Assets/Images/12.jpg';
+
+
+const cards = [ 1,2,3,4,5,6,7,8,9,10,11,12];
 
 function Cards() {
   const classes = useStyles();
+  
   return (
     <>
         <CssBaseline />
@@ -19,9 +22,9 @@ function Cards() {
                 <Typography>Label example</Typography>
                 <Box>
                   <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
-                  <Button className={classes.button}>1</Button>
-                  <Button className={classes.button}>2</Button>
-                  <Button className={classes.button}>3</Button>
+                  <Fab size='small'>1</Fab>
+                  <Fab size='small'>2</Fab>
+                  <Fab size='small'>3</Fab>
                   <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
                 </Box>
             </Grid>

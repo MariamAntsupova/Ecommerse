@@ -25,9 +25,6 @@ const useStyles = makeStyles((theme)=> ({
         marginRight: '10px',
 
     },
-    button: {
-        borderRadius: '50%',
-    },
     grid: {
         display: 'flex' ,
         flexDirection: 'row',
