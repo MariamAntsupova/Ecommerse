@@ -22,9 +22,9 @@ function Cards() {
                 <Typography>Label example</Typography>
                 <Box>
                   <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
-                  <Fab size='small'>1</Fab>
-                  <Fab size='small'>2</Fab>
-                  <Fab size='small'>3</Fab>
+                  <Fab size='small' style={{backgroundColor: '#4285F4' , marginRight: '5px'}}>1</Fab>
+                  <Fab size='small' style={{ marginRight: '5px'}}>2</Fab>
+                  <Fab size='small' >3</Fab>
                   <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
                 </Box>
             </Grid>

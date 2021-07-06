@@ -167,28 +167,16 @@ function Sidebar() {
                 <Box>
                     <Typography component="legend" className = {classes.title}><b>Color</b></Typography>
 
-                    <Fab size="medium" color="primary" >
-                        
-                    </Fab>
-                    <Fab size="medium" color="secondary" >
-                        
-                    </Fab>
-                    <Fab size="medium" color="transparent" >
-                        
-                    </Fab>
-                    <Fab size="medium" color="primary"  >
-                        
-                    </Fab>
-                    <Fab size="medium" color="secondary" >
-                        
-                    </Fab>
-                    <Fab size="medium" color="transparent" >
-                        
-                    </Fab>
-                    <Fab size="medium" color="primary"  >
-                        
-                    </Fab>                       
-                   
+                    <Fab size="small" style={{backgroundColor: "#FFFFFF" , margin: '5px 5px 5px 0px'}} ></Fab>
+                    <Fab size="small" style={{backgroundColor: "#9E9E9E"  , margin: '5px 5px 5px 0px'}} ></Fab>
+                    <Fab size="small" style={{backgroundColor: "#000000"  , margin: '5px 5px 5px 0px'}} ></Fab>
+                    <Fab size="small" style={{backgroundColor: "#4CAF50"  , margin: '5px 5px 5px 0px'}}></Fab>
+                    <Fab size="small" style={{backgroundColor: "#2196F3"  , margin: '5px 5px 5px 0px'}}></Fab>
+                    <Fab size="small" style={{backgroundColor: "#9C27B0"  , margin: '5px 5px 5px 0px'}}></Fab>
+                    <Fab size="small" style={{backgroundColor: "#FFEB3B"  , margin: '5px 5px 5px 0px'}}></Fab> 
+                    <Fab size="small" style={{backgroundColor: "#3F51B5"  , margin: '5px 5px 5px 0px'}}></Fab>         
+                    <Fab size="small" style={{backgroundColor: "#F44336"  , margin: '5px 5px 5px 0px'}}></Fab>  
+                    <Fab size="small" style={{backgroundColor: "#FF9800"}}></Fab>                                      
                 </Box>
             </Container>
       </div>
