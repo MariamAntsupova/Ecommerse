@@ -3,7 +3,7 @@ import useStyles from './CardsLayoutStyles';
 import image from '../../Assets/Images/12.jpg';
 
 
-const cards = [ 1,2,3,4,5,6,7,8,9,10,11,12];
+const cards = [ 1,2,3,4,5,6,7,8,9];
 
 function Cards() {
   const classes = useStyles();
@@ -48,6 +48,20 @@ function Cards() {
                   </Card>
                 </Grid>
               ))}
+            </Grid>
+            <Grid item xs={12} className={classes.grid}>
+                <Grid item xs={3}>
+                    <a href="#!" className={classes.i}><i className="fas fa-th-list fa-lg " ></i></a>
+                    <a href="#!" className={classes.i}><i className="fas fa-th-large fa-lg"></i></a>
+                </Grid>
+                <Typography>Label example</Typography>
+                <Box>
+                  <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
+                  <Fab size='small' style={{backgroundColor: '#4285F4' , marginRight: '5px'}}>1</Fab>
+                  <Fab size='small' style={{ marginRight: '5px'}}>2</Fab>
+                  <Fab size='small' >3</Fab>
+                  <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
+                </Box>
             </Grid>
           </Container>
         </main>

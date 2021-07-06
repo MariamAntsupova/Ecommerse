@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme)=> ({
         padding: '50px 0'
     },
     banner: {
-        marginTop: '150px',
+        marginTop: '20px',
         backgroundColor: '#1266F1',
     },
     col: {

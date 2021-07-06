@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
         duration: theme.transitions.duration.standard
       }),
       padding: '0 20px',
-      borderBottom: `1px solid ${theme.palette.divider}`
+      borderBottom: `1px solid ${theme.palette.divider}`,
     },
     appBarScrolled: {
       backgroundColor: 'white',
