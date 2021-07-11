@@ -1,13 +1,123 @@
 import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box, Fab} from '@material-ui/core';
 import useStyles from './CardsLayoutStyles';
-import image from '../../Assets/Images/12.jpg';
+import CardComponent from '../../Components/CardComponent';
+import React, { useState } from 'react';
 
-
-const cards = [ 1,2,3,4,5,6,7,8,9];
 
 function Cards() {
   const classes = useStyles();
-  
+  const [cards, setCards] = useState([
+    {
+      title: "Black denim jacket1",
+      price: "99,99",
+      disCountPrice: "21,99",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.",
+      category: "Shirt",
+      review: 3,
+      model: "Shirt 5407x",
+      color: "Blue",
+      delivery: "USA, Europe",
+      size: ["small", "medium", "large"],
+      img: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+      imgGroup: [
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+      ],
+      id: 1
+    },
+    {
+      title: "Black denim jacket2",
+      price: "99,99",
+      disCountPrice: false,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.",
+      category: "Shirt",
+      reviewCount: 7,
+      review: 2,
+      model: "Shirt 5407x",
+      color: "Blue",
+      delivery: "USA, Europe",
+      size: ["small", "medium", "large"],
+      img: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+      imgGroup: [
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+      ],
+      id: 2
+    },
+    {
+      title: "Black denim jacket3",
+      price: "99",
+      disCountPrice: false,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.",
+      category: "Shirt",
+      reviewCount: 4,
+      review: 5,
+      model: "Shirt 5407x",
+      color: "Blue",
+      delivery: "USA, Europe",
+      size: ["small", "medium", "large"],
+      img: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+      imgGroup: [
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+      ],
+      id: 3
+    },
+    {
+      title: "Black denim jacket4",
+      price: "59,21",
+      disCountPrice: "31,99",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.",
+      category: "Shirt",
+      reviewCount: 10,
+      review: 4,
+      model: "Shirt 5407x",
+      color: "Blue",
+      delivery: "USA, Europe",
+      size: ["small", "medium", "large"],
+      img: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+      imgGroup: [
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+      ],
+      id: 4
+    },
+    {
+      title: "Black denim jacket5",
+      price: "99,18",
+      disCountPrice: false,
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.",
+      category: "Shirt",
+      reviewCount: 2,
+      review: 1,
+      model: "Shirt 5407x",
+      color: "Blue",
+      delivery: "USA, Europe",
+      size: ["small", "medium", "large"],
+      img: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15.jpg",
+      imgGroup: [
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/13a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/14a.jpg",
+        "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/15a.jpg"
+      ],
+      id: 5
+    }
+  ]);
+
   return (
     <>
         <CssBaseline />
@@ -27,27 +137,9 @@ function Cards() {
                   <Fab size='small' >3</Fab>
                   <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
                 </Box>
-            </Grid>
+            </Grid >
             <Grid container spacing={4}>
-              {cards.map((card)=>(
-                <Grid item key={card} xs={12} sm={6} md={4} >
-                  <Card className={classes.card}>
-                      <CardMedia
-                        className={classes.cardMedia}
-                        image={image}
-                        title='Image Title'
-                      />
-                      <CardContent className={classes.cardContent}>
-                        <Typography gutterBottom variant='h5'>
-                          Black denim jacket
-                        </Typography>
-                        <Typography >
-                          $99.99
-                        </Typography>
-                      </CardContent>
-                  </Card>
-                </Grid>
-              ))}
+              <CardComponent cards={cards} />
             </Grid>
             <Grid item xs={12} className={classes.grid}>
                 <Grid item xs={3}>

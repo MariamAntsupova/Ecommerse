@@ -1,8 +1,8 @@
 import { Typography, AppBar , Toolbar , Container, Box, CardMedia, useScrollTrigger} from '@material-ui/core';
 import React from 'react';
 import useStyles from './MainLayoutStyles';
-
-import AppBarCollapse from './appBarCollapse/AppBarCollapse';
+import AppBarr from './AppBarN/AppBarr'
+import FooterLayout from '../FooterLayout/FooterLayout';
 
 function MainLayout({children}) {
     const classes = useStyles();
@@ -14,23 +14,7 @@ function MainLayout({children}) {
     return(
         <>
             <div className={classes.root}>
-                    <AppBar 
-                        position="fixed" 
-                        wrap
-                        elevation={0}
-                        className={`${classes.appBar} ${
-                        trigger === false ? '' : classes.appBarScrolled
-                        }`}
-                        xs={12} sm={3}
-                        wrap
-                        >
-                        <Toolbar wrap>
-                            <Typography className={classes.title} variant="h3" edge="start" noWrap>
-                                <i class="fab fa-mdb"></i>
-                            </Typography>
-                            <AppBarCollapse/>
-                        </Toolbar>
-                    </AppBar>
+                    <AppBarr/>
                     <Box component="div" height={400}>
                             <CardMedia
                             className={classes.media}
@@ -44,6 +28,8 @@ function MainLayout({children}) {
                 <Container>
                     {children}
                 </Container>
+                <FooterLayout/>
+                
             </div>
         </>
     )

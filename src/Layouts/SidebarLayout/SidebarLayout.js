@@ -18,7 +18,7 @@ function Sidebar() {
               height: 8,
             },
             thumb: {
-              height: 24,
+              height: 24, 
               width: 24,
               backgroundColor: '#fff',
               border: '2px solid currentColor',
@@ -89,7 +89,8 @@ function Sidebar() {
                     <Box component="fieldset" mb={1} borderColor="transparent">
                         <Typography component="legend" className = {classes.title}><b>Avg. Customer Review</b></Typography>
                         <Rating
-                        value={value}
+                        style={{color:'#1266F1'}}
+                        value={5}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
@@ -97,7 +98,8 @@ function Sidebar() {
                     </Box>
                     <Box component="fieldset" mb={1} borderColor="transparent">
                         <Rating
-                        value={value}
+                        style={{color:'#1266F1'}}
+                        value={4}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
@@ -105,18 +107,23 @@ function Sidebar() {
                     </Box>
                     <Box component="fieldset" mb={1} borderColor="transparent">
                         <Rating
-                        value={value}
+                        style={{color:'#1266F1'}}
+                        value={3}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
                         />
+                        and UP
                     </Box>
                     <Box component="fieldset" mb={3} borderColor="transparent">
                         <Rating
-                        value={value}
+                        style={{color:'#1266F1'}}
+                        value={2}
+                        newValue={2}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}
+                        
                         />
                     </Box>
                 </Box>
@@ -148,6 +155,7 @@ function Sidebar() {
                                 <FormControlLabel
                                 control={<Checkbox checked={xs} onChange={handleChange} name="34" />}
                                 label="34"
+                                style={{backgroundColor:"primary"}}
                                 />
                                 <FormControlLabel
                                 control={<Checkbox checked={s} onChange={handleChange} name="36" />}

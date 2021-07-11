@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme)=> ({
         textAlign:'center',
     },
     cardMedia:{
-        paddingTop: '100%'
+        paddingTop: '100%',
     },
     cardContent: {
         flexGrow:1,
