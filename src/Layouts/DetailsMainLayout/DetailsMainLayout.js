@@ -2,8 +2,9 @@ import { Typography,Radio ,FormControlLabel,TextField,Container,Grid  ,  Button,
 import useStyles from './DetailsMainLayoutStyles';
 import image from '../../Assets/Images/12.jpg';
 import { Rating } from "@material-ui/lab";
-import React, { useState } from 'react' ;
+import React, { useState , useEffect } from 'react' ;
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -11,26 +12,37 @@ function DetailsMainLayout() {
   const classes = useStyles();
   const [value, setValue] = useState();
   const [count, setCount] = useState(1);
-  return (
+  const [singleCard , setSingleCard] = useState();
+  const { id } = useParams();
+  useEffect(() => {
 
+    fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(res => res.json())
+        .then(single => setSingleCard(single))
+        console.log(singleCard);
+}, [id])
+
+  return (
+      <>
+    {singleCard && (
     <Container>
         <Grid container >
             <Grid item xs={12} sm={6} padding='50px ' component={Box}>
-                <Box ><img alt='img' src={image} width='100%' /></Box>
+                <Box ><img alt='img' src={singleCard.image} width='100%' /></Box>
                 <Box display='flex' justifyContent='space-between' mt='15px'>
-                    <img src={image} alt='img' width='22%'/>
-                    <img src={image} alt='img' width='22%'/>
-                    <img src={image} alt='img' width='22%'/>
-                    <img src={image} alt='img' width='22%'/>
+                    <img src={singleCard.image} alt='img' width='22%'/>
+                    <img src={singleCard.image} alt='img' width='22%'/>
+                    <img src={singleCard.image} alt='img' width='22%'/>
+                    <img src={singleCard.image} alt='img' width='22%'/>
                 </Box>
             </Grid>
             <Grid item xs={12} sm={6} padding='50px ' component={Box}>
                 <Box>
                     <Box marginTop='20px'>
-                      <Typography variant='h6' className={classes.title}>Blue denim shirt</Typography>
+                      <Typography variant='h6' className={classes.title}>{singleCard.title}</Typography>
                     </Box>
                     <Box marginTop='20px'>
-                      <Typography variant='p'>SHIRTS</Typography>
+                      <Typography variant='p'>{singleCard.category}</Typography>
                     </Box>
                     <Box marginTop='20px' component="fieldset" borderColor="transparent">
                        <Rating
@@ -44,12 +56,10 @@ function DetailsMainLayout() {
                         />
                     </Box>                    
                     <Box marginTop='20px'>
-                        <Typography variant='h6' className={classes.title}>$17.99</Typography>
+                        <Typography variant='h6' className={classes.title}>{singleCard.price}</Typography>
                     </Box>
                     <Box  marginTop='30px'> 
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Numquam, sapiente illo. Sit error voluptas repellat rerum quidem, soluta enim perferendis
-                        voluptates laboriosam. Distinctio, officia quis dolore quos sapiente tempore alias.
+                        {singleCard.description}
                     </Box>
                     <Grid sm={6} xs={12} >
                       <Box marginTop='30px' fontSize='15px' color='#4F4F4F' display='flex' justifyContent='space-between'>
@@ -97,6 +107,8 @@ function DetailsMainLayout() {
             <Box border='0.5px solid #E5E5E5' marginTop='30px'> </Box>
         </Box>
     </Container>
+    )}
+    </>
 );
 }
 
