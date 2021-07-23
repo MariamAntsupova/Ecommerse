@@ -1,6 +1,6 @@
 import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box, Fab} from '@material-ui/core';
 import useStyles from './CardsLayoutStyles';
-import CardComponent from '../../Components/CardComponent';
+import CardComponent from '../../Components/CardComponent/CardComponent';
 import React, { useState } from 'react';
 
 

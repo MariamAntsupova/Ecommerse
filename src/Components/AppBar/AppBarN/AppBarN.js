@@ -5,7 +5,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {IconFlagUK} from 'material-ui-flags';
 import IconButton from '@material-ui/core/IconButton';
-import useStyles from '../MainLayoutStyles';
+import useStyles from '../../../Layouts/MainLayout/MainLayoutStyles';
 
  const styles = theme => ({
    root: {

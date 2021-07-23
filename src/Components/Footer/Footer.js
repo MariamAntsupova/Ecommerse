@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Typography } from "@material-ui/core";
-import useStyles from "./FooterLayoutStyles";
+import useStyles from "./FooterStyles";
 
 
 function FooterLayout() {

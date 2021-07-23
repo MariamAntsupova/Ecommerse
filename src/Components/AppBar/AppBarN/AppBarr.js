@@ -1,6 +1,6 @@
 import { Typography, AppBar , Toolbar , Container, Box, CardMedia, useScrollTrigger} from '@material-ui/core';
 import React from 'react';
-import useStyles from '../MainLayoutStyles';
+import useStyles from '../../../Layouts/MainLayout/MainLayoutStyles';
 
 import AppBarCollapse from '../appBarCollapse/AppBarCollapse';
 

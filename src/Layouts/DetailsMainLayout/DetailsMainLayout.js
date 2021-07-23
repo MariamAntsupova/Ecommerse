@@ -5,6 +5,7 @@ import { Rating } from "@material-ui/lab";
 import React, { useState , useEffect } from 'react' ;
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { useParams } from 'react-router-dom';
+import DetailsComponent from '../../Components/DetailsComponent/DetailsComponent';
 
 
 
@@ -15,7 +16,6 @@ function DetailsMainLayout() {
   const [singleCard , setSingleCard] = useState();
   const { id } = useParams();
   useEffect(() => {
-
     fetch(`https://fakestoreapi.com/products/${id}`)
         .then(res => res.json())
         .then(single => setSingleCard(single))
@@ -104,7 +104,8 @@ function DetailsMainLayout() {
             </Grid>
         </Grid>
         <Box padding='0 50px '>
-            <Box border='0.5px solid #E5E5E5' marginTop='30px'> </Box>
+            <DetailsComponent/>
+        <Box border='0.5px solid #E5E5E5' marginTop='30px'> </Box>
         </Box>
     </Container>
     )}

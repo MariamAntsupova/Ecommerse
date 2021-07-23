@@ -1,7 +1,7 @@
 import { Box, Checkbox, Container, Fab, FormControl, FormControlLabel, FormGroup, Radio, RadioGroup, Slider, TextField, Typography, withStyles } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import React, { useState } from 'react' ;
-import useStyles from "./SidebarLayoutStyles";
+import useStyles from "./SidebarStyles";
 
 function Sidebar() {
         const classes = useStyles();

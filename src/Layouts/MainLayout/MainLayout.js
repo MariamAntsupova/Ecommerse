@@ -1,8 +1,8 @@
 import { Typography, AppBar , Toolbar , Container, Box, CardMedia, useScrollTrigger} from '@material-ui/core';
 import React from 'react';
 import useStyles from './MainLayoutStyles';
-import AppBarr from './AppBarN/AppBarr'
-import FooterLayout from '../FooterLayout/FooterLayout';
+import AppBarr from '../../Components/AppBar/AppBarN/AppBarr'
+import Footer from '../../Components/Footer/Footer';
 
 function MainLayout({children}) {
     const classes = useStyles();
@@ -28,7 +28,7 @@ function MainLayout({children}) {
                 <Container>
                     {children}
                 </Container>
-                <FooterLayout/>
+                <Footer/>
                 
             </div>
         </>

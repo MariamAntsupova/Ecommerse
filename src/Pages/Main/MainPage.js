@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import Cards from "../../Layouts/CardsLayout/CardsLayout";
 import useStyles from "../../Layouts/CardsLayout/CardsLayoutStyles";
 import MainLayout from "../../Layouts/MainLayout/MainLayout";
-import Sidebar from "../../Layouts/SidebarLayout/SidebarLayout";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 
 function MainPage() {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import useStyles from './DetailsPageStyles';
 import {Toolbar, Typography,AppBar ,Container,Box} from "@material-ui/core";
-import AppBarCollapse from '../../Layouts/MainLayout/appBarCollapse/AppBarCollapse';
-import FooterLayout from '../../Layouts/FooterLayout/FooterLayout';
+import AppBarCollapse from '../../Components/AppBar/appBarCollapse/AppBarCollapse';
+import Footer from '../../Components/Footer/Footer';
 import DetailsMainLayout from '../../Layouts/DetailsMainLayout/DetailsMainLayout';
 import { Link } from 'react-router-dom';
 import {HomePage} from '../../Routes/Routes'
@@ -34,7 +34,7 @@ function DetailsPage() {
         <Container style={{marginTop:'40px'}}>
           <DetailsMainLayout/>
         </Container>  
-        <FooterLayout/>
+        <Footer/>
       </>
     );
   }

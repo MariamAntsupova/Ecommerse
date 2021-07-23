@@ -1,6 +1,6 @@
 import { Typography , Card ,CardMedia , CssBaseline ,Grid  , CardContent, Button} from '@material-ui/core';
-import useStyles from '../Layouts/CardsLayout/CardsLayoutStyles';
-import { SinglePage } from '../Routes/Routes';
+import useStyles from '../../Layouts/CardsLayout/CardsLayoutStyles';
+import { SinglePage } from '../../Routes/Routes';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
