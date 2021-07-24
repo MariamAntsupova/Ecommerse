@@ -2,6 +2,7 @@ import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, 
 import useStyles from './CardsLayoutStyles';
 import CardComponent from '../../Components/CardComponent/CardComponent';
 import React, { useState } from 'react';
+import { Pagination } from '@material-ui/lab';
 
 
 function Cards() {
@@ -19,11 +20,7 @@ function Cards() {
                 </Grid>
                 <Typography>Label example</Typography>
                 <Box>
-                  <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
-                  <Fab size='small' style={{backgroundColor: '#4285F4' , marginRight: '5px'}}>1</Fab>
-                  <Fab size='small' style={{ marginRight: '5px'}}>2</Fab>
-                  <Fab size='small' >3</Fab>
-                  <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
+                    <Pagination count={10} color="primary" />     
                 </Box>
             </Grid >
             <Grid container spacing={4}>
@@ -36,11 +33,7 @@ function Cards() {
                 </Grid>
                 <Typography>Label example</Typography>
                 <Box>
-                  <Button className={classes.button}><i class="fas fa-angle-left"></i></Button>
-                  <Fab size='small' style={{backgroundColor: '#4285F4' , marginRight: '5px'}}>1</Fab>
-                  <Fab size='small' style={{ marginRight: '5px'}}>2</Fab>
-                  <Fab size='small' >3</Fab>
-                  <Button className={classes.button}><i class="fas fa-angle-right"></i></Button>
+                    <Pagination count={10} color="primary" />     
                 </Box>
             </Grid>
           </Container>

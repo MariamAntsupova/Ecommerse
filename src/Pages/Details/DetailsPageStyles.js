@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { blue } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme)=> ({
     appBarScrolled: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles((theme)=> ({
           top: '100px',
           position: 'relative',
           color: '#323232',
+      },
+      avatar: {
+        backgroundColor: blue[100],
+        color: blue[600],
       },
 }));
 

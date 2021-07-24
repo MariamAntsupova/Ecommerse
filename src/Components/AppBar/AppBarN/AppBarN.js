@@ -6,6 +6,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import {IconFlagUK} from 'material-ui-flags';
 import IconButton from '@material-ui/core/IconButton';
 import useStyles from '../../../Layouts/MainLayout/MainLayoutStyles';
+import {Link} from "react-router-dom";
+import { LogIn ,SignUp } from "../../../Routes/Routes";
 
  const styles = theme => ({
    root: {
@@ -52,18 +54,22 @@ import useStyles from '../../../Layouts/MainLayout/MainLayoutStyles';
                     <Typography variant="h7" wrap className={classes.nav} >
                         Contact
                     </Typography>
-                    <Typography variant="h7" wrap className={classes.nav} >
-                        Sign in
-                    </Typography>
-                    <Button 
-                        variant='outlined' 
-                        elevation={0}
-                        className={`${classes.button} ${
-                        trigger === false ? '' : classes.buttonScrolled
-                        }`}
-                        >
-                        Sign Up
-                    </Button>
+                    <Link to={LogIn} style={{textDecoration: 'none' , color : 'white'}} >
+                      <Typography variant="h7" wrap className={classes.nav}  >
+                          Sign in
+                      </Typography>
+                    </Link>
+                    <Link to={SignUp} style={{textDecoration: 'none'}}>
+                      <Button 
+                          variant='outlined' 
+                          elevation={0}
+                          className={`${classes.button} ${
+                          trigger === false ? '' : classes.buttonScrolled
+                          }`}
+                          >
+                          Sign Up
+                      </Button>
+                    </Link>
                     <IconButton aria-label="display more actions" edge="end" color="inherit">
                         <MoreIcon />
                     </IconButton>
