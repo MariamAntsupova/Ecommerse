@@ -1,12 +1,24 @@
 import { Typography , Card ,CardMedia , CssBaseline ,Grid  , Container, Button, CardContent, Box, Fab} from '@material-ui/core';
 import useStyles from './CardsLayoutStyles';
 import CardComponent from '../../Components/CardComponent/CardComponent';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Pagination } from '@material-ui/lab';
 
 
 function Cards() {
   const classes = useStyles();
+  const [page , setPage] = useState(1);
+  const[data , setData] = useState();
+  useEffect(()=>{
+    fetch(`https://fakestoreapi.com/products?page=${page}`)
+      .then(res => res.json())
+      .then(data => setData(data))
+      console.log(page)
+  } , [page]);
+
+  const onChange = ( e, p) => {
+    setPage(p);
+  }
   return (
     <>
         <CssBaseline />
@@ -20,7 +32,7 @@ function Cards() {
                 </Grid>
                 <Typography>Label example</Typography>
                 <Box>
-                    <Pagination count={10} color="primary" />     
+                    <Pagination count={10} defaultPage={page} page={page} onChange={onChange} color="primary" />     
                 </Box>
             </Grid >
             <Grid container spacing={4}>
@@ -33,7 +45,7 @@ function Cards() {
                 </Grid>
                 <Typography>Label example</Typography>
                 <Box>
-                    <Pagination count={10} color="primary" />     
+                    <Pagination count={10} defaultPage={page} page={page} onChange={onChange} color="primary" />     
                 </Box>
             </Grid>
           </Container>

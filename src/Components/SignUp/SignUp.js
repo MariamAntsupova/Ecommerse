@@ -2,7 +2,9 @@ import React from 'react';
 import { Formik, Form ,  useFormik } from 'formik';
 import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
-import {Box , TextField , Button} from '@material-ui/core';
+import {TextField , Button , CssBaseline , FormControlLabel ,Checkbox , Grid , Container} from '@material-ui/core';
+import {Link} from "react-router-dom";
+import { LogIn } from '../../Routes/Routes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +17,20 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       padding: '150px'
-  }
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
 
@@ -65,72 +80,110 @@ function SignUp ()  {
       }
     >
       {formik => (
-        <Box className={classes.main}>
-            <TextField
-                id="firstName"
-                value={formik.values.firstName}
-                name="firstName"
-                type="text"
-                onChange={formik.handleChange}
-                label="firstName"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
-            />
-            {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
-            <TextField
-                id="lastName"
-                value={formik.values.lastName}
-                name="lastName"
-                type="text"
-                onChange={formik.handleChange}
-                label="lastName"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
-            />
-            {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-            <TextField
-                id="email"
-                value={formik.values.email}
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                label="Your email"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
-            />
-            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <form className={classes.form} noValidate>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    autoComplete="fname"
+                    name="firstName"
+                    variant="outlined"
+                    value={formik.values.firstName}
+                    onChange={formik.handleChange}    
+                    required
+                    fullWidth
+                    id="firstName"
+                    label="First Name"
+                    autoFocus
+                  />
+                {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    value={formik.values.email}
+                    onChange={formik.handleChange}    
+                    id="lastName"
+                    label="Last Name"
+                    name="lastName"
+                    autoComplete="lname"
+                  />
+                {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}    
+                    autoComplete="email"
+                  />
+                  {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}    
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="confirmPassword"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}    
+                    label="Confirm Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                  />
+                  {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
 
-            <TextField
-                id="password"
-                value={formik.values.password}
-                name="password"
-                type="password"
-                onChange={formik.handleChange}
-                label="Your password"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
-
-            />
-            {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-
-            <TextField
-                id="confirmPassword"
-                value={formik.values.password}
-                name="confirmPassword"
-                type="password"
-                onChange={formik.handleChange}
-                label="confirm Password"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
-
-            />
-            {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
-            
-            <Button variant="contained" color="primary" type="submit" style={{margin:'5% auto', width: '150px'}}>
+                </Grid>
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    control={<Checkbox value="allowExtraEmails" color="primary" />}
+                    label="I want to receive inspiration, marketing promotions and updates via email."
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
                 Sign Up
-            </Button>
-            
-        </Box>
+              </Button>
+              <Grid container justifyContent="flex-end">
+                <Grid item>
+                  <Link to={LogIn} variant="body2">
+                    Already have an account? Sign in
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+      </Container>
       )}
     </Formik>
   )

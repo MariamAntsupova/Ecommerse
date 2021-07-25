@@ -2,7 +2,14 @@ import React from 'react';
 import { Formik, Form ,  useFormik } from 'formik';
 import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
-import {Box , TextField , Button} from '@material-ui/core';
+import {Box , TextField , Button ,FormControlLabel , Checkbox , Grid , Container , CssBaseline , Typography} from '@material-ui/core';
+import { SignUp } from '../../Routes/Routes';
+import {Link} from "react-router-dom";
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,8 +21,21 @@ const useStyles = makeStyles((theme) => ({
   main: {
       display: 'flex',
       flexDirection: 'column',
-      padding: '150px'
-  }
+      alignItems: 'center',
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
 }));
 
 
@@ -26,6 +46,15 @@ function LogIn ()  {
     email: Yup.string().email('Email is invalid').required('Email is required'),
     password: Yup.string().min(6, 'Password must be at least 6 charaters').required('Password is required'),
   })
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Formik
       initialValues={{
@@ -55,34 +84,89 @@ function LogIn ()  {
       }
     >
       {formik => (
-        <Box className={classes.main}>
+        <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <form className={classes.form} noValidate>
             <TextField
-                id="email"
-                value={formik.values.email}
-                name="email"
-                type="email"
-                onChange={formik.handleChange}
-                label="Your email"
-                variant="outlined"
-                style={{ marginBottom: "20px" }}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              autoComplete="email"
+              autoFocus
             />
             {formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
             <TextField
-                id="password"
-                value={formik.values.password}
-                name="password"
-                type="password"
-                onChange={formik.handleChange}
-                label="Your password"
-                variant="outlined"
+              variant="outlined"
+              margin="normal"
+              value={formik.values.password}
+              required
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              onChange={formik.handleChange}
+              autoComplete="current-password"
             />
             {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-            <Button variant="contained" color="primary" type="submit" style={{margin:'5% auto', width: '150px'}}>
-                Sign in
+
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
             </Button>
-            
-        </Box>
+            <Grid container>
+              <Grid item xs>
+                <Link onClick={handleClickOpen} variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Dialog
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+              >
+                <DialogTitle id="alert-dialog-title">{"Forgot Password?"}</DialogTitle>
+                <DialogContent>
+                  <DialogContentText id="alert-dialog-description">
+                    Relax and try to remember your password.
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={handleClose} color="primary">
+                    Thanks!
+                  </Button>
+                  <Button onClick={handleClose} color="primary">
+                    Helpfull
+                  </Button>
+                </DialogActions>
+              </Dialog>
+              <Grid item>
+                <Link to={SignUp}  >
+                  <Typography variant="body2">"Don't have an account? Sign Up"</Typography>
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+      </Container>
       )}
     </Formik>
   )
