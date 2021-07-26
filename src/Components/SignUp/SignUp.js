@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import {TextField , Button , CssBaseline , FormControlLabel ,Checkbox , Grid , Container} from '@material-ui/core';
 import {Link} from "react-router-dom";
-import { LogIn } from '../../Routes/Routes';
+import { HomePage, LogIn } from '../../Routes/Routes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +39,6 @@ function SignUp ()  {
   const { status , setStatus , resetForm , isSubmitting , setErrors} = useFormik({});
   const validate = Yup.object({
     firstName: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
-    lastName: Yup.string().max(20, 'Must be 20 characters or less').required('Required'),
     email: Yup.string().email('Email is invalid').required('Email is required'),
     password: Yup.string().min(6, 'Password must be at least 6 charaters').required('Password is required'),
     confirmPassword: Yup.string()
@@ -49,7 +48,6 @@ function SignUp ()  {
     <Formik
       initialValues={{
         firstName: '',
-        lastName: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -57,7 +55,7 @@ function SignUp ()  {
       validationSchema={validate}
       onSubmit={values => 
         {
-            fetch("https://fakestoreapi.com/auth/login", {
+            fetch(" http://159.65.126.180/api/register", {
                 method: "POST",
                 body: JSON.stringify({
                     firstName: values.firstName,
@@ -82,107 +80,96 @@ function SignUp ()  {
       {formik => (
         <Container component="main" maxWidth="xs">
           <CssBaseline />
-          <div className={classes.paper}>
-            <form className={classes.form} noValidate>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    autoComplete="fname"
-                    name="firstName"
-                    variant="outlined"
-                    value={formik.values.firstName}
-                    onChange={formik.handleChange}    
-                    required
-                    fullWidth
-                    id="firstName"
-                    label="First Name"
-                    autoFocus
-                  />
-                {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    value={formik.values.email}
-                    onChange={formik.handleChange}    
-                    id="lastName"
-                    label="Last Name"
-                    name="lastName"
-                    autoComplete="lname"
-                  />
-                {formik.errors.lastName ? <div>{formik.errors.lastName}</div> : null}
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    value={formik.values.email}
-                    onChange={formik.handleChange}    
-                    autoComplete="email"
-                  />
-                  {formik.errors.email ? <div>{formik.errors.email}</div> : null}
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="password"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}    
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="confirmPassword"
-                    value={formik.values.password}
-                    onChange={formik.handleChange}    
-                    label="Confirm Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                  />
-                  {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
+         {status ? (<Link to={HomePage}/>) : (
+            <div className={classes.paper}>
+              <form className={classes.form} noValidate>
+                <Grid container spacing={2}>
+                  <Grid item xs={12}>
+                    <TextField
+                      autoComplete="fname"
+                      name="firstName"
+                      variant="outlined"
+                      value={formik.values.firstName}
+                      onChange={formik.handleChange}    
+                      required
+                      fullWidth
+                      id="firstName"
+                      label="First Name"
+                      autoFocus
+                    />
+                  {formik.errors.firstName ? <div>{formik.errors.firstName}</div> : null}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="email"
+                      label="Email Address"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}    
+                      autoComplete="email"
+                    />
+                    {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      name="password"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}    
+                      label="Password"
+                      type="password"
+                      id="password"
+                      autoComplete="current-password"
+                    />
+                    {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      name="confirmPassword"
+                      value={formik.values.confirmPassword}
+                      onChange={formik.handleChange}    
+                      label="Confirm Password"
+                      type="password"
+                      id="confirmPassword"
+                      autoComplete="current-password"
+                    />
+                    {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
 
+                  </Grid>
+                  <Grid item xs={12}>
+                    <FormControlLabel
+                      control={<Checkbox value="allowExtraEmails" color="primary" />}
+                      label="I want to receive inspiration, marketing promotions and updates via email."
+                    />
+                  </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                  <FormControlLabel
-                    control={<Checkbox value="allowExtraEmails" color="primary" />}
-                    label="I want to receive inspiration, marketing promotions and updates via email."
-                  />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                >
+                  Sign Up
+                </Button>
+                <Grid container justifyContent="flex-end">
+                  <Grid item>
+                    <Link to={LogIn} variant="body2">
+                      Already have an account? Sign in
+                    </Link>
+                  </Grid>
                 </Grid>
-              </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign Up
-              </Button>
-              <Grid container justifyContent="flex-end">
-                <Grid item>
-                  <Link to={LogIn} variant="body2">
-                    Already have an account? Sign in
-                  </Link>
-                </Grid>
-              </Grid>
-            </form>
-          </div>
+              </form>
+            </div>
+         )}
       </Container>
       )}
     </Formik>

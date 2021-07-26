@@ -3,7 +3,7 @@ import { Formik, Form ,  useFormik } from 'formik';
 import * as Yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import {Box , TextField , Button ,FormControlLabel , Checkbox , Grid , Container , CssBaseline , Typography} from '@material-ui/core';
-import { SignUp } from '../../Routes/Routes';
+import { SignUp , HomePage} from '../../Routes/Routes';
 import {Link} from "react-router-dom";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -64,7 +64,7 @@ function LogIn ()  {
       validationSchema={validate}
       onSubmit={values => 
         {
-            fetch("https://fakestoreapi.com/auth/login", {
+            fetch("http://159.65.126.180/api/auth/login", {
                 method: "POST",
                 body: JSON.stringify({
                   email: values.email,
@@ -86,86 +86,88 @@ function LogIn ()  {
       {formik => (
         <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              autoComplete="email"
-              autoFocus
-            />
-            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
+         {status ? (<Link to={HomePage}/>) : (
+          <div className={classes.paper}>
+            <form className={classes.form} noValidate>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                autoComplete="email"
+                autoFocus
+              />
+              {formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
-            <TextField
-              variant="outlined"
-              margin="normal"
-              value={formik.values.password}
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              onChange={formik.handleChange}
-              autoComplete="current-password"
-            />
-            {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+              <TextField
+                variant="outlined"
+                margin="normal"
+                value={formik.values.password}
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                onChange={formik.handleChange}
+                autoComplete="current-password"
+              />
+              {formik.errors.password ? <div>{formik.errors.password}</div> : null}
 
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link onClick={handleClickOpen} variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Dialog
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
               >
-                <DialogTitle id="alert-dialog-title">{"Forgot Password?"}</DialogTitle>
-                <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                    Relax and try to remember your password.
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button onClick={handleClose} color="primary">
-                    Thanks!
-                  </Button>
-                  <Button onClick={handleClose} color="primary">
-                    Helpfull
-                  </Button>
-                </DialogActions>
-              </Dialog>
-              <Grid item>
-                <Link to={SignUp}  >
-                  <Typography variant="body2">"Don't have an account? Sign Up"</Typography>
-                </Link>
+                Sign In
+              </Button>
+              <Grid container>
+                <Grid item xs>
+                  <Link onClick={handleClickOpen} variant="body2">
+                    Forgot password?
+                  </Link>
+                </Grid>
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="alert-dialog-title"
+                  aria-describedby="alert-dialog-description"
+                >
+                  <DialogTitle id="alert-dialog-title">{"Forgot Password?"}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText id="alert-dialog-description">
+                      Relax and try to remember your password.
+                    </DialogContentText>
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                      Thanks!
+                    </Button>
+                    <Button onClick={handleClose} color="primary">
+                      Helpfull
+                    </Button>
+                  </DialogActions>
+                </Dialog>
+                <Grid item>
+                  <Link to={SignUp}  >
+                    <Typography variant="body2">"Don't have an account? Sign Up"</Typography>
+                  </Link>
+                </Grid>
               </Grid>
-            </Grid>
-          </form>
-        </div>
+            </form>
+          </div>
+          )}
       </Container>
       )}
     </Formik>

@@ -54,12 +54,12 @@ import { LogIn ,SignUp } from "../../../Routes/Routes";
                     <Typography variant="h7" wrap className={classes.nav} >
                         Contact
                     </Typography>
-                    <Link to={LogIn} style={{textDecoration: 'none' , color : 'white'}} >
+                    <Link to={LogIn} style={{textDecoration: 'none' , color : 'grey'}} >
                       <Typography variant="h7" wrap className={classes.nav}  >
                           Sign in
                       </Typography>
                     </Link>
-                    <Link to={SignUp} style={{textDecoration: 'none'}}>
+                    <Link to={SignUp} style={{textDecoration: 'none' }}>
                       <Button 
                           variant='outlined' 
                           elevation={0}
