@@ -6,20 +6,18 @@ export const loginUser = (email, password) =>  (dispatch, getState) => {
         headers: {
             "Content-Type": "application/json",
             accept: "application/json",
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify({email, password}),
     }).then((res) => {
-            console.log(res)
-            if (res.ok) {
+        console.log(res.json());
+        if (res.ok) {
+                console.log(res)
+                dispatch(setUser(res.user))
+                dispatch(setToken(res.token.access_token))
                 return res.json()
             } else {
-                throw new Error('');
+                console.log('problem');
             }
-        }).then(data => {
+        })
 
-        console.log(data);
-        dispatch(setUser(data.user))
-        dispatch(setToken(data.token.access_token))
-    })
 }

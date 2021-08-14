@@ -10,6 +10,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../store/user/userAction';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,6 +42,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 function LogIn ()  {
+  const dispatch = useDispatch()
     const classes = useStyles();
   const { status , setStatus , resetForm , isSubmitting , setErrors} = useFormik({});
   const validate = Yup.object({
@@ -62,33 +65,16 @@ function LogIn ()  {
         password: "",
       }}
       validationSchema={validate}
-      onSubmit={values => 
-        {
-            fetch("http://159.65.126.180/api/auth/login", {
-                method: "POST",
-                body: JSON.stringify({
-                  email: values.email,
-                  password: values.password,
-                }),
-              })
-                .then((res) => res.json())
-                .then((json) => {
-                  console.log(json);
-                  setStatus(true);
-                  resetForm();
-                })
-                .catch((error) => {
-                  console.log(error);
-                })
-            }
-      }
+      onSubmit={body => {
+        dispatch(loginUser(body))
+    }}
     >
       {formik => (
         <Container component="main" maxWidth="xs">
         <CssBaseline />
          {status ? (<Link to={HomePage}/>) : (
           <div className={classes.paper}>
-            <form className={classes.form} noValidate>
+            <Form className={classes.form} noValidate>
               <TextField
                 variant="outlined"
                 margin="normal"
@@ -165,7 +151,7 @@ function LogIn ()  {
                   </Link>
                 </Grid>
               </Grid>
-            </form>
+            </Form>
           </div>
           )}
       </Container>
